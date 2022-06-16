@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.mySize{
+    opacity: 0.2
+}
