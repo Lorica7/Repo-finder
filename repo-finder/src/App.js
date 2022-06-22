@@ -4,27 +4,30 @@ import Footer from './components/layout/Footer';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import FourOFour from './Pages/404';
+import {GithubProvider} from './context/github/GithubContext.js';
 
 function App () {
   return (
-    <Router>
+    <GithubProvider>
+      <Router>
 
-      <div className="flex flex-col justify-between h-screen">
-        <Navbar />
-        <main className="container mx-auto px-3 pb-12">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />;
-            <Route path="/fourofour" element={<FourOFour />} />;
-            <Route path="/*" element={<FourOFour />} />;
+        <div className="flex flex-col justify-between h-screen">
+          <Navbar />
+          <main className="container mx-auto px-3 pb-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />;
+              <Route path="/fourofour" element={<FourOFour />} />;
+              <Route path="/*" element={<FourOFour />} />;
 
-          </Routes>
-        </main>
+            </Routes>
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
 
-    </Router>
+      </Router>
+    </GithubProvider>
   );
 }
 
