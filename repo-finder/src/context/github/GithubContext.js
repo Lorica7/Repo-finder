@@ -2,16 +2,16 @@ import {createContext, useState} from 'react';
 
 const GithubContext = createContext ();
 
-const GITHUB_URL = process.env.REACT_APP_GH_URL;
+const GH_URL = process.env.REACT_APP_GH_URL;
 
-const GH_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const GH_TOKEN = process.env.REACT_APP_GH_TOKEN;
 
 export const GithubProvider = ({children}) => {
   const [users, setUsers] = useState ([]);
   const [loading, setLoading] = useState (true);
 
   const fetchUsers = async () => {
-    const response = await fetch (`${GITHUB_URL}/users`, {
+    const response = await fetch (`${GH_URL}/users`, {
       headers: {
         Authorization: `token ${GH_TOKEN}`,
       },
@@ -19,10 +19,8 @@ export const GithubProvider = ({children}) => {
 
     const data = await response.json ();
     setLoading (false);
-    setUsers (data);
     console.log (data);
-    console.log (loading);
-    console.log (users);
+    setUsers (data);
   };
   return (
     <GithubContext.Provider value={{users, loading, fetchUsers}}>
