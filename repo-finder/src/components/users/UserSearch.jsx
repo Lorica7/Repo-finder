@@ -4,16 +4,17 @@ import GithubContext from '../../context/github/GithubContext';
 const UserSearch = () => {
   const [text, setText] = useState ('');
 
-  const {users} = useContext (GithubContext);
+  const {users, searchUsers, clearUsers} = useContext (GithubContext);
 
   const handleChange = e => setText (e.target.value);
 
   const handleSubmit = e => {
+    console.log (e);
     e.preventDefault ();
     if (text === '') {
       alert ('Please enter a value');
     } else {
-      //search users
+      searchUsers (text);
       setText ('');
     }
   };
@@ -33,6 +34,7 @@ const UserSearch = () => {
               <button
                 className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
                 type="submit"
+                onClick={handleSubmit}
               >
                 Go
               </button>
@@ -43,7 +45,9 @@ const UserSearch = () => {
       </div>
       {users.length > 0 &&
         <div>
-          <button className="btb btn-ghost btn-large">Clear</button>
+          <button className="btb btn-ghost btn-large" onClick={clearUsers}>
+            Clear
+          </button>
         </div>}
 
     </div>
