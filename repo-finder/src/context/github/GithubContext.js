@@ -41,7 +41,7 @@ export const GithubProvider = ({children}) => {
   const getUser = async login => {
     setLoading ();
 
-    const response = await fetch (`${GH_URL}users/${login}`, {
+    const response = await fetch (`${GH_URL}/users/${login}`, {
       headers: {
         Authorization: `token ${GH_TOKEN}`,
       },
@@ -49,6 +49,8 @@ export const GithubProvider = ({children}) => {
 
     if (response.status === 404) {
       window.location = '/fourofour';
+      console.log (response);
+      setLoading (false);
     } else {
       const {info} = await response.json ();
       console.log (info);

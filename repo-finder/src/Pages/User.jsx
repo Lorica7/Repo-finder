@@ -7,6 +7,7 @@ import {FontAwesome, FaCodepen, FaStore, FaUserFriends, FaUsers} from 'react-fon
 import {Link} from 'react-router-dom';
 import Spinner from '../components/layout/Spinner';
 
+
 import GithubContext from '../context/github/GithubContext';
 
 export const User = () => {
@@ -24,8 +25,8 @@ export const User = () => {
     twitter_username,
     login,
     html_url,
-    followers,
-    following,
+    followers_url,
+    following_url,
     public_repos,
     public_gists,
     hireable,
@@ -45,9 +46,22 @@ export const User = () => {
       <Link to='/' className='btn btn-ghost'>
         Back to Search
       </Link>
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
+        <div className="custm-card-image mb-6 md:-0 ">
+          <div className="rounded-lg shadow-xl card image-full">
+            <figure>
+              <img src={avatar_url} alt='' />
+            </figure>
+            <div className='card-body justify-end'>
+              <h2 className="littleH" >{name}</h2>
+              <p>{ login }</p>
+            </div>
+          </div>
+</div>
+      </div>
     </div>
-    </div>
-    </>;
+    </>
 };
 
 export default User;
