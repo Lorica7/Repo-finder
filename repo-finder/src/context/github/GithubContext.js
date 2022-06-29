@@ -10,6 +10,7 @@ const GH_TOKEN = process.env.REACT_APP_GH_TOKEN;
 export const GithubProvider = ({children}) => {
   const initState = {
     users: [],
+    user: {},
     loading: false,
   };
 
@@ -36,6 +37,28 @@ export const GithubProvider = ({children}) => {
     });
   };
 
+  //Get Single User
+  const getUser = async login => {
+    setLoading ();
+
+    const response = await fetch (`${GH_URL}users/${login}`, {
+      headers: {
+        Authorization: `token ${GH_TOKEN}`,
+      },
+    });
+
+    if (response.status === 404) {
+      window.location = '/fourofour';
+    } else {
+      const {info} = await response.json ();
+      console.log (info);
+      dispatch ({
+        type: 'GET_USER',
+        payload: info,
+      });
+    }
+  };
+
   const clearUsers = () => dispatch ({type: 'CLEAR_USERS'});
 
   const setLoading = () => dispatch ({type: 'SET_LOADING'});
@@ -44,9 +67,11 @@ export const GithubProvider = ({children}) => {
     <GithubContext.Provider
       value={{
         users: state.users,
+        user: state.user,
         loading: state.loading,
         searchUsers,
         clearUsers,
+        getUser,
       }}
     >
       {children}
