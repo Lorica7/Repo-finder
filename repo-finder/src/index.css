@@ -6,3 +6,31 @@
     opacity: 0.2;
     height: 200px;
 }
+
+.footer-wrap{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#Layer_1{
+    max-height: 75px;
+}
+
+.heading{
+    color: white;
+    text-transform: none;
+    margin-bottom: 200px;
+}
+
+.home-wrap{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+        align-items: center;
+}
+
+h1{
+    font-size: 42px;
+}

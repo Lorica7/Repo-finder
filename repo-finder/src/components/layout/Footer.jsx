@@ -4,7 +4,8 @@ const footerYear = new Date ().getFullYear;
 function Footer () {
   return (
     <footer className="footer">
-      <div className="mx-auto">
+      <div className="mx-auto footer-wrap
+	  ">
 
         <svg
           className="mySize"

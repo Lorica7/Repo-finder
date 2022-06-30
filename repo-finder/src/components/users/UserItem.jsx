@@ -6,8 +6,6 @@ import GithubContext from '../../context/github/GithubContext';
 import PropTypes from 'prop-types';
 
 function UserItem({user: {login, avatar_url}}) {
-  const {getUser} = useContext (GithubContext);
-
   return (
     <div className="card shadow-md compact side bg-base-100">
       <div className="felx-row items-center space-x-4 card-body">
@@ -19,7 +17,7 @@ function UserItem({user: {login, avatar_url}}) {
           <Link
             className="text-base-content text-opacity-40"
             to={`/user/:${login}`}
-            onClick={getUser (login)}
+            // onClick={getUser (login)}
           >
             Visit Profile
           </Link>

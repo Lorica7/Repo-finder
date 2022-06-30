@@ -1,15 +1,16 @@
 import React from 'react';
 import UserResults from '../components/users/UserResults';
 import UserSearch from '../components/users/UserSearch';
+import Header from '../components/layout/Header';
 
-function Home () {
+export const Home = () => {
   return (
-    <>
-      <UserSearch/>
+    <div className="home-wrap">
+      <Header />
+      <UserSearch />
       <UserResults />
-
-    </>
+    </div>
   );
-}
+};
 
 export default Home;

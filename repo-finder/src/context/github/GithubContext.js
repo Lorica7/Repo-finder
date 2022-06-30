@@ -40,8 +40,9 @@ export const GithubProvider = ({children}) => {
   //Get Single User
   const getUser = async login => {
     setLoading ();
-
-    const response = await fetch (`${GH_URL}/users/${login}`, {
+    const log2 = login.substring (1);
+    console.log (log2);
+    const response = await fetch (`${GH_URL}/users/${log2}`, {
       headers: {
         Authorization: `token ${GH_TOKEN}`,
       },
@@ -52,7 +53,7 @@ export const GithubProvider = ({children}) => {
       console.log (response);
       setLoading (false);
     } else {
-      const {info} = await response.json ();
+      const info = await response.json ();
       console.log (info);
       dispatch ({
         type: 'GET_USER',
