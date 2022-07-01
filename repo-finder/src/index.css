@@ -34,3 +34,15 @@
 h1{
     font-size: 42px;
 }
+
+.avatar{
+    margin-right: 20px;
+}
+
+img{
+    margin-right: 20px;
+}
+
+.user-card{
+   background-color: #966fb3;
+}
