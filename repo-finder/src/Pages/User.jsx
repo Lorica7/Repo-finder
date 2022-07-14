@@ -88,7 +88,7 @@ const User = () => {
                 <a href={`https://${blog}`} target="_blank" rel="noreferrer">
                   {' '}{blog}{' '}
                 </a>
-                {blog}
+
               </div>
             </div>}
           {twitter_username &&
@@ -123,7 +123,7 @@ const User = () => {
             <FaUserFriends className="text-3xl md:text-5xl" />{' '}
           </div>
           <div className="stat-title pr-5">
-            Followers
+            Following
           </div>
           <div className=" stat-value text-3xl md:text-4xl"> {following} </div>
         </div>
@@ -152,6 +152,7 @@ const User = () => {
 
       </div>
       <RepoList repos={repos} />
+
     </div>
   );
 };

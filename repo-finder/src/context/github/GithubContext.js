@@ -10,6 +10,7 @@ const GH_TOKEN = process.env.REACT_APP_GH_TOKEN;
 export const GithubProvider = ({children}) => {
   const initState = {
     users: [],
+    repos: [],
     user: {},
     loading: false,
   };
@@ -93,10 +94,8 @@ export const GithubProvider = ({children}) => {
   return (
     <GithubContext.Provider
       value={{
-        users: state.users,
-        user: state.user,
-        loading: state.loading,
-        repos: state.repos,
+        ...state,
+        dispatch,
         searchUsers,
         clearUsers,
         getUser,

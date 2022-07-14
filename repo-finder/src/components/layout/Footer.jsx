@@ -100,7 +100,7 @@ function Footer () {
           <g />
         </svg>
 
-        <p> App made by Danielle</p>
+        <p className="mb-8"> App made by Danielle</p>
       </div>
     </footer>
   );

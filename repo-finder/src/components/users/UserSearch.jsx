@@ -22,7 +22,7 @@ const UserSearch = () => {
   };
 
   return (
-    <div className="grid ">
+    <div className="grid space-y-6 ">
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-control">
@@ -47,7 +47,12 @@ const UserSearch = () => {
       </div>
       {users.length > 0 &&
         <div>
-          <button className="btb btn-ghost btn-large" onClick={clearUsers}>
+          <button
+            className="btb btn-primary p-3 rounded 
+
+             btn-large mb-6"
+            onClick={clearUsers}
+          >
             Clear
           </button>
         </div>}
